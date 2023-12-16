@@ -9,6 +9,21 @@ on:
 
 jobs:
   build:
+    env:
+      PORT: "8080"
+      NODE_ENV: "development"
+      ACCESS_TOKEN_SECRET: "tinphancr7"
+      REFRESH_TOKEN_SECRET: "tinphancr77"
+      EMAIL_APP_PASSWORD: "wnxdhfozeenhhmdv"
+      EMAIL_APP: "phanthanhtincr7@gmail.com"
+      URL_FE: "http://localhost:5173"
+      DB_HOST: "127.0.0.1"
+      DB_NAME: "pet_shop"
+      DB_USERNAME: "root"
+      DB_PASSWORD: ""
+      DB_PORT: "3306"
+      DB_DIALECT: "mysql"
+
     runs-on: self-hosted
 
     strategy:
@@ -24,3 +39,5 @@ jobs:
           node-version: ${{ matrix.node-version }}
           cache: "npm"
       - run: npm ci
+      - run: npm install -g @babel/core @babel/cli @babel/node @babel/preset-env
+      - run: pm2 restart tin7dev

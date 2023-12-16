@@ -1,0 +1,32 @@
+const productsRouter = require("./product");
+const categoriesRouter = require("./category");
+import authRouter from "./auth";
+import usersRouter from "./user";
+import petsRouter from "./pet";
+import specialtyRouter from "./specialty";
+import bookingRouter from "./booking";
+import healthRouter from "./healthRecord";
+import doctorRouter from "./doctor";
+import adminRouter from "./admin";
+import cartsRouter from "./cart";
+import orderRouter from "./order";
+
+import postRouter from "./post";
+import commentRouter from "./comment";
+let initialRoutes = (app) => {
+	app.use("/api/auth", authRouter);
+	app.use("/api/users", usersRouter);
+	app.use("/api/products", productsRouter);
+	app.use("/api/categories", categoriesRouter);
+	app.use("/api/carts", cartsRouter);
+	app.use("/api/pets-manager", petsRouter);
+	app.use("/api/specialties", specialtyRouter);
+	app.use("/api/bookings", bookingRouter);
+	app.use("/api/health-records", healthRouter);
+	app.use("/api/doctors", doctorRouter);
+	app.use("/api/admin", adminRouter);
+	app.use("/api/posts", postRouter);
+	app.use("/api/comments", commentRouter);
+	app.use("/api/orders", orderRouter);
+};
+export default initialRoutes;
